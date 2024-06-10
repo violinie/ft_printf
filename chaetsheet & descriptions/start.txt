@@ -1,0 +1,7 @@
+1. Define structure of this project == what do we actually need to create
+	- Makefile
+	- ft_printf.c
+	- ft_printf.h
+	- converting functions (to handle different inputs, for example string/integer etc.)
+2. Create Makefile
+3. Create header (ft_printf.h)
