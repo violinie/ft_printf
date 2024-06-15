@@ -4,7 +4,7 @@
 static void	handle_conversion(char c, va_list args, int *count)
 {
 	if (c == 'c') // if the format specifier is 'c' (character)
-		handle_char(args, count); // call the function to handle character output
+		*count = *count + handle_char((char)va_arg(args, int)); // TODO
 }
 
 // custom printf function
@@ -12,8 +12,8 @@ static void	handle_conversion(char c, va_list args, int *count)
 // ... == can accept variable number of arguments (ellipsis or variadic argument)
 int	ft_printf(const char *format, ...)
 {
-	va_list args; // declare a variable to hold the list of arguments
-	size_t count; // variable to count the number of characters printed
+	va_list	args; // declare a variable to hold the list of arguments
+	int		count; // variable to count the number of characters printed
 
 	count = 0;
 	va_start(args, format); // initialize the va_list 'args' to start at the argument after 'format'

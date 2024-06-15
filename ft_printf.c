@@ -3,15 +3,13 @@
 static void	handle_conversion(char c, va_list args, int *count)
 {
 	if (c == 'c')
-	{
-		handle_char(args, count);
-	}
+		*count = *count + handle_char((char)va_arg(args, int));
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	size_t	count;
+	int		count;
 
 	count = 0;
 	va_start(args, format);
@@ -54,3 +52,5 @@ int	ft_printf(const char *format, ...)
 
     return 0;
 }*/
+
+// gcc -Wall -Wextra -Werror -o test_ft_printf ft_printf.c ft_printf.h handle_char.c libft/ft_putchar_fd.c
