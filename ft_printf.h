@@ -5,6 +5,7 @@
 # include <stdint.h>
 # include "libft/libft.h"
 
-int ft_printf(const char *, ...)
+int ft_printf(const char *, ...);
+int	handle_char(char c);
 
 #endif
