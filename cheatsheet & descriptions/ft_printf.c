@@ -4,7 +4,11 @@
 static void	handle_conversion(char c, va_list args, int *count)
 {
 	if (c == 'c') // if the format specifier is 'c' (character)
-		*count = *count + handle_char((char)va_arg(args, int)); // TODO
+		// gets the next argument from a variable list of arguments (va_arg(args, int))
+		// because variadic arguments are promoted to int (ASCII value), transforms the obtained integer into a character ((char)va_arg(args, int))
+		// passes the character to the handle_char function for printing (handle_char((char)va_arg(args, int)))
+		// adds the number of characters printed by the handle_char function to the total number of characters printed
+		*count = *count + handle_char((char)va_arg(args, int));
 }
 
 // custom printf function
