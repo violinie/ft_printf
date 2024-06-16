@@ -4,6 +4,8 @@ static void	handle_conversion(char c, va_list args, int *count)
 {
 	if (c == 'c')
 		*count = *count + handle_char((char)va_arg(args, int));
+	/*else if (c == 's')
+		*count = *count + handle_string(va_arg(args, char *));*/
 }
 
 int	ft_printf(const char *format, ...)
