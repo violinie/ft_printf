@@ -7,6 +7,6 @@
 
 int	ft_printf(const char *format, ...);
 int	handle_char(char c);
-/*int	handle_string(char *str);*/
+int	handle_string(char *str);
 
 #endif
