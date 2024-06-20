@@ -9,6 +9,10 @@ static void	handle_conversion(char c, va_list args, int *count)
 		// passes the character to the handle_char function for printing (handle_char((char)va_arg(args, int)))
 		// adds the number of characters printed by the handle_char function to the total number of characters printed
 		*count = *count + handle_char((char)va_arg(args, int));
+	else if (c == 's')
+		*count = *count + handle_string(va_arg(args, char *)); // similar to handle_char
+	else if (c == '%')
+		*count = *count + handle_char(c); // passing just the %
 }
 
 // custom printf function
