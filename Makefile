@@ -4,6 +4,7 @@ SRCS = ft_printf.c \
 		handle_char.c \
 		handle_string.c \
 		handle_unsigned.c \
+		handle_integer.c \
 
 OBJS = $(SRCS:.c=.o)
 

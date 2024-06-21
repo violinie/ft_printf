@@ -11,6 +11,10 @@ static void	handle_conversion(char c, va_list args, int *count)
 		*count = *count + handle_char((char)va_arg(args, int));
 	else if (c == 's')
 		*count = *count + handle_string(va_arg(args, char *)); // similar to handle_char
+	else if (c == 'd' || c == 'i')
+		*count = *count + handle_int(va_arg(args, int));
+	else if (c == 'u')
+		*count = *count + handle_unsigned(va_arg(args, unsigned int));
 	else if (c == '%')
 		*count = *count + handle_char(c); // passing just the %
 }

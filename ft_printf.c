@@ -6,6 +6,8 @@ static void	handle_conversion(char c, va_list args, int *count)
 		*count = *count + handle_char((char)va_arg(args, int));
 	else if (c == 's')
 		*count = *count + handle_string(va_arg(args, char *));
+	else if (c == 'd' || c == 'i')
+		*count = *count + handle_integer(va_arg(args, int));
 	else if (c == 'u')
 		*count = *count + handle_unsigned(va_arg(args, unsigned int));
 	else if (c == '%')
