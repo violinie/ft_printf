@@ -10,6 +10,9 @@ static void	handle_conversion(char c, va_list args, int *count)
 		*count = *count + handle_integer(va_arg(args, int));
 	else if (c == 'u')
 		*count = *count + handle_unsigned(va_arg(args, unsigned int));
+	// TODO else if (c == 'x') // hex-lower
+	// TODO else if (c == 'X') // hex-upper
+	// TODO else if (c == 'p') // pointer
 	else if (c == '%')
 		*count = *count + handle_char(c);
 }
