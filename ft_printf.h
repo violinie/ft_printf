@@ -10,5 +10,7 @@ int	handle_char(char c);
 int	handle_string(char *str);
 int	handle_unsigned(unsigned int u);
 int	handle_integer(int nb);
+int	handle_hex(unsigned int unb, int uppercase);
+// int	handle_pointer; TODO
 
 #endif
