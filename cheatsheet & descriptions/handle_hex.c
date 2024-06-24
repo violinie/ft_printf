@@ -1,30 +1,33 @@
 #include "ft_printf.h"
 
+// reverse a string and handle it
 static int	ft_strrev(char *str)
 {
-	char	*rev;
-	size_t	i;
-	size_t	j;
-	size_t	count;
+	char	*rev; // pointer to hold the reversed string
+	size_t	i; // index for original string
+	size_t	r; // index for reversed string
+	size_t	count; // variable to hold the length of the handled string
 
 	i = 0;
-	j = ft_strlen(str) + 1;
-	rev = malloc(j * sizeof(char));
+	r = ft_strlen(str) + 1; // get length of the string plus one for the null terminator
+	rev = malloc(r * sizeof(char)); // allocate memory for the reversed string
+	// if allocation fails, return 0
 	if (!rev)
 		return (0);
-	j--;
-	rev[j] = 0;
-	j--;
-	while (j >= 0)
+	r--; // decrement r to point to the last valid index in the allocated memory
+	rev[r] = 0; // null terminate the reversed string
+	r--; // decrement to start filling the reversed string from the end
+	// reverse the string
+	while (r >= 0)
 	{
-		rev[j] = str[i];
-		j--;
+		rev[r] = str[i];
+		r--;
 		i++;
 	}
-	free(str);
-	count = handle_string(rev);
-	free(rev);
-	return (count);
+	free(str); // free the original string
+	count = handle_string(rev); // handle the reversed string and get the length
+	free(rev); // free the reversed string
+	return (count); // return the length of the handled string
 }
 
 static char	ft_convert(unsigned int mod)

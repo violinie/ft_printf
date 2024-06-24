@@ -15,6 +15,10 @@ static void	handle_conversion(char c, va_list args, int *count)
 		*count = *count + handle_int(va_arg(args, int));
 	else if (c == 'u')
 		*count = *count + handle_unsigned(va_arg(args, unsigned int));
+	else if (c == 'x')
+		*count = *count + handle_hex(va_arg(args, unsigned int), 0);
+	else if (c == 'X')
+		*count = *count + handle_hex(va_arg(args, unsigned int), 1);
 	else if (c == '%')
 		*count = *count + handle_char(c); // passing just the %
 }
