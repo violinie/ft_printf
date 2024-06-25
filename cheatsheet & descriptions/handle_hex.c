@@ -30,21 +30,22 @@ static int	ft_strrev(char *str)
 	return (count); // return the length of the handled string
 }
 
-static char	ft_convert(unsigned int mod)
+// convert an integer to its corresponding hexadecimal character
+static char	convert_to_hex(unsigned int mod)
 {
-	if (mod == 10)
+	if (mod == 10) // if the integer is 10, return 'a'
 		return ('a');
-	else if (mod == 11)
+	else if (mod == 11) // if the integer is 11, return 'b'
 		return ('b');
-	else if (mod == 12)
+	else if (mod == 12) // if the integer is 12, return 'c'
 		return ('c');
-	else if (mod == 13)
+	else if (mod == 13) // if the integer is 13, return 'd'
 		return ('d');
-	else if (mod == 14)
+	else if (mod == 14) // if the integer is 14, return 'e'
 		return ('e');
-	else if (mod == 15)
+	else if (mod == 15) // if the integer is 15, return 'f'
 		return ('f');
-	return (mod);
+	return (mod); // if the integer is not between 10 and 15, return the integer itself
 }
 
 static int	ft_places(unsigned int unb)
@@ -78,9 +79,9 @@ int	handle_hex(unsigned int unb, int uppercase)
 	{
 		mod = unb % 16;
 		if (mod > 9 && uppercase)
-			str[i++] = ft_convert(mod) - 32;
+			str[i++] = convert_to_hex(mod) - 32;
 		else if (mod > 9)
-			str[i++] = ft_convert(mod);
+			str[i++] = convert_to_hex(mod);
 		else
 			str[i++] = (char)(mod + 48);
 		unb = unb / 16;

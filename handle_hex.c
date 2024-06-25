@@ -27,7 +27,7 @@ static int	ft_strrev(char *str)
 	return (count);
 }
 
-static char	ft_convert(unsigned int mod)
+static char	convert_to_hex(unsigned int mod)
 {
 	if (mod == 10)
 		return ('a');
@@ -75,9 +75,9 @@ int	handle_hex(unsigned int unb, int uppercase)
 	{
 		mod = unb % 16;
 		if (mod > 9 && uppercase)
-			str[i++] = ft_convert(mod) - 32;
+			str[i++] = convert_to_hex(mod) - 32;
 		else if (mod > 9)
-			str[i++] = ft_convert(mod);
+			str[i++] = convert_to_hex(mod);
 		else
 			str[i++] = (char)(mod + 48);
 		unb = unb / 16;
