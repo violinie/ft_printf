@@ -24,16 +24,12 @@ $(NAME): $(OBJS)
 	mv libft.a $(NAME)
 	$(AR) $@ $^
 
-test: $(NAME)
-	$(CC) $(CFLAGS) -o test_ft_printf test_ft_printf.c $(FT_PRINTF_OBJS) $(LIBFT_OBJS) -I. -L. -lftprintf
-
 clean:
 	rm -f $(OBJS)
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f test_ft_printf
 
 re: fclean all
 
