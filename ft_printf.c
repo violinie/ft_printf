@@ -9,7 +9,7 @@ static void	handle_conversion(char c, va_list args, int *count)
 	else if (c == 'd' || c == 'i')
 		*count = *count + handle_integer(va_arg(args, int));
 	else if (c == 'u')
-		*count = *count + handle_unsigned(va_arg(args, unsigned int));
+		*count = *count + handle_unsigned(va_arg(args, long));
 	else if (c == 'x')
 		*count = *count + handle_hex(va_arg(args, unsigned int), 0);
 	else if (c == 'X')
