@@ -4,21 +4,21 @@ static int	ft_strrev(char *str)
 {
 	char	*rev;
 	size_t	i;
-	size_t	j;
+	int		r;
 	size_t	count;
 
 	i = 0;
-	j = ft_strlen(str) + 1;
-	rev = malloc(j * sizeof(char));
+	r = ft_strlen(str) + 1;
+	rev = malloc(r * sizeof(char));
 	if (!rev)
 		return (0);
-	j--;
-	rev[j] = 0;
-	j--;
-	while (j >= 0)
+	r--;
+	rev[r] = 0;
+	r--;
+	while (r >= 0)
 	{
-		rev[j] = str[i];
-		j--;
+		rev[r] = str[i];
+		r--;
 		i++;
 	}
 	free(str);
@@ -44,9 +44,9 @@ static char	convert_to_hex(unsigned int mod)
 	return (mod);
 }
 
-static int	ft_places(unsigned int unb)
+static int	hex_digit_count(unsigned int unb)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (unb > 0)
@@ -67,7 +67,7 @@ int	handle_hex(unsigned int unb, int uppercase)
 	count = 0;
 	if (unb == 0)
 		return (handle_char('0'));
-	str = ft_calloc(ft_places(unb) + 1, sizeof(char));
+	str = ft_calloc(hex_digit_count(unb) + 1, sizeof(char));
 	if (!str)
 		return (0);
 	i = 0;

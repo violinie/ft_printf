@@ -48,17 +48,18 @@ static char	convert_to_hex(unsigned int mod)
 	return (mod); // if the integer is not between 10 and 15, return the integer itself
 }
 
-static int	ft_places(unsigned int unb)
+// calculates the number of digits required to represent an unsigned integer in hexadecimal (base 16 == 0 - 9 & A - F)
+static int	hex_digit_count(unsigned int unb)
 {
-	int	i;
+	size_t	i; // variable to store the number of digits
 
-	i = 0;
-	while (unb > 0)
+	i = 0; // starting with 0
+	while (unb > 0) // loop until the number is greater than 0
 	{
-		unb = unb / 16;
-		i++;
+		unb = unb / 16; // divide the number by 16 to shift to the next digit
+		i++; // increment the digit counter
 	}
-	return (i);
+	return (i); // return the total number of digits
 }
 
 int	handle_hex(unsigned int unb, int uppercase)
@@ -71,7 +72,7 @@ int	handle_hex(unsigned int unb, int uppercase)
 	count = 0;
 	if (unb == 0)
 		return (handle_char('0'));
-	str = ft_calloc(ft_places(unb) + 1, sizeof(char));
+	str = ft_calloc(hex_digit_count(unb) + 1, sizeof(char));
 	if (!str)
 		return (0);
 	i = 0;
