@@ -1,6 +1,7 @@
 42 project
 
 Testers
+- Francinette 
 - [Tripoulle](https://github.com/Tripouille/printfTester)
 
 New topics
