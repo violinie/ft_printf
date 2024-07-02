@@ -14,7 +14,8 @@ static void	handle_conversion(char c, va_list args, int *count)
 		*count = *count + handle_hex(va_arg(args, unsigned int), 0);
 	else if (c == 'X')
 		*count = *count + handle_hex(va_arg(args, unsigned int), 1);
-	// TODO else if (c == 'p') // pointer
+	else if (c == 'p')
+		*count = *count + handle_pointer(va_arg(args, uintptr_t));
 	else if (c == '%')
 		*count = *count + handle_char(c);
 }
