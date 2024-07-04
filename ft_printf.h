@@ -12,6 +12,6 @@ int	handle_string(char *str);
 int	handle_unsigned(long u);
 int	handle_integer(int nb);
 int	handle_hex(unsigned int unb, int uppercase);
-// int	handle_pointer; TODO
+int	handle_pointer(uintptr_t n);
 
 #endif
